@@ -5,12 +5,15 @@
 # computation and avoids recalculation which can be very time consuming
 
 ## Write a short comment describing this function
-##The first function, makeVector creates a special "vector", which is really a list containing a function to
 
-set the value of the vector
-get the value of the vector
-set the value of the mean
-get the value of the mean
+#The first function, makeCacheMatrix creates a special "matrix", which is 
+#really a list containing functions to
+
+#1) set the value of the matrix
+#2) get the value of the matrix
+#3) set the value of the inverse of the matrix
+#4) get the value of the inverse of the matrix
+
 makeCacheMatrix <- function(x = matrix()) {
 	m <- NULL
 	set <- function(y) {
@@ -28,6 +31,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+
+# The second function calculates the inverse of the special matrix that is 
+# created from the first function. Before doing the actual calculation, it first
+# checks that the inverse has already been calculated. If the inverse was 
+# already calculated, it does not calculate it again and just retrieve the
+# cached value. If the inverse has not been already calculated, it performs the
+# calculation using the solve() R built-in function.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
